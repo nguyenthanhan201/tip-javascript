@@ -7,10 +7,6 @@
 - **_Responsibility for work_**
 - **_Actively discuss_**
 
-<h2>Project Screenshots:</h2>
-
-<img src="./public/common/screenshot.png" alt="project-screenshot" width="3024" />
-
 <h2>🧐 Features</h2>
 
 Here're some of the project's best features:
