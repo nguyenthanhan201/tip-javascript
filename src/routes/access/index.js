@@ -1,9 +1,19 @@
 const express = require("express");
 const accessControler = require("../../controllers/access.controler");
-const { asyncHandler } = require("../../auth/checkAuth");
+const asyncHandler = require("../../helpers/asyncHandler");
+const { authentication, authenticationV2 } = require("../../auth/authUtils");
 const router = express.Router();
 
 // signUp
 router.post("/shop/signup", asyncHandler(accessControler.signUp));
+router.post("/shop/login", asyncHandler(accessControler.login));
+
+router.use(authenticationV2);
+// authentication
+router.post("/shop/logout", asyncHandler(accessControler.logout));
+router.post(
+  "/shop/handlerRefreshToken",
+  asyncHandler(accessControler.handlerRefreshToken)
+);
 
 module.exports = router;

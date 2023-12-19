@@ -10,3 +10,13 @@ x-api-key: 261c7ef773f127799e0a4c04ce7f808855d4c34d30e50540f99f09008e14f2f2a85d4
     "email": "fxannguyen4@gmail.com",
     "password": "123456"
 }
+
+### signup
+POST {{url_dev}}/shop/login
+Content-Type: application/json
+x-api-key: 261c7ef773f127799e0a4c04ce7f808855d4c34d30e50540f99f09008e14f2f2a85d42690d60040fea4bdb57e9191d5e638a8ec9a93736a1b093fc36000f2aa5
+
+{
+    "email": "fxannguyen4@gmail.com",
+    "password": "123456"
+}

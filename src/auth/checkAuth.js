@@ -39,7 +39,7 @@ const permissions = (permission) => {
       });
     }
 
-    console.log("permissions: ", req.objKey.permissions);
+    // console.log("permissions: ", req.objKey.permissions);
     const vaildPermission = req.objKey.permissions.includes(permission);
 
     if (!vaildPermission) {
@@ -52,11 +52,7 @@ const permissions = (permission) => {
   };
 };
 
-const asyncHandler = (fn) => (req, res, next) =>
-  Promise.resolve(fn(req, res, next)).catch(next);
-
 module.exports = {
   apiKey,
   permissions,
-  asyncHandler,
 };

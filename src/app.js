@@ -2,6 +2,7 @@ const compression = require("compression");
 const express = require("express");
 const { default: helmet } = require("helmet");
 const morgan = require("morgan");
+const { ErrorResponse } = require("./core/error.response");
 
 const app = express();
 
@@ -22,7 +23,7 @@ app.use("/", require("./routes"));
 
 // init error handler
 app.use((req, res, next) => {
-  const error = new Error("Not found");
+  const error = new ErrorResponse("Not found");
   error.status = 404;
   next(error);
 });
@@ -30,7 +31,9 @@ app.use((req, res, next) => {
 app.use((error, req, res, next) => {
   const statusCode = error.status || 500;
   return res.status(statusCode).json({
+    status: "error",
     code: statusCode,
+    stack: error.stack,
     message: error.message || "Internal Server Error",
   });
 });
