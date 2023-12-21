@@ -23,7 +23,7 @@ const RoleShop = {
 
 class AccessService {
   static handlerRefreshTokenV2 = async ({ refreshToken, user, keyStore }) => {
-    console.log("👌  keyStore:", keyStore);
+    // console.log("👌  keyStore:", keyStore);
     const { userId, email } = user;
 
     if (keyStore.refreshTokensUsed.includes(refreshToken)) {
@@ -46,7 +46,7 @@ class AccessService {
       keyStore.privateKey
     );
 
-    await keyStore.update({
+    await keyStore.updateOne({
       $set: {
         refreshToken: tokens.refreshToken,
       },

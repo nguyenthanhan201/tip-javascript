@@ -103,6 +103,8 @@ const authenticationV2 = asyncHandler(async (req, res, next) => {
     }
   }
 
+  const accessToken = req.headers[HEADER.AUTHORIZATION]?.toString();
+
   if (!accessToken) throw new AuthFailureError("Invalid request");
 
   try {
@@ -112,6 +114,7 @@ const authenticationV2 = asyncHandler(async (req, res, next) => {
       throw new AuthFailureError("Invalid Userid");
 
     req.keyStore = keyStore;
+    req.user = decodeUser;
     return next();
   } catch (error) {
     throw error;
